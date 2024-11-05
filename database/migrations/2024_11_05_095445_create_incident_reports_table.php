@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('incident_date');
             $table->text('description');
             $table->enum('type_of_incident', ['Abuse', 'Neglect', 'Other']);
-            $table->foreignId('reporter_id')->constrained('users')->onDelete('set null');
+            $table->foreignId('reporter_id')->nullable()->constrained('users')->onDelete('set null');
             $table->text('action_taken')->nullable();
             $table->enum('status', ['Reported', 'Under Investigation', 'Resolved']);
             $table->string('location')->nullable();
